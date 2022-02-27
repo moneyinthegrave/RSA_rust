@@ -16,7 +16,7 @@ pub fn generate_q(p: i32) -> i32{
     let mut Q = 0;
     loop {
         Q = rand::thread_rng().gen_range(10..100);
-        if prime_number(Q) == 1 || !(p == q) {
+        if prime_number(Q) == 1 && !(p == q) {
             return Q;
         }
     }
@@ -87,7 +87,16 @@ pub fn Euclid(e:i32, fi:i32) -> i32 {
     return u;
 }
 
-
+pub fn step_by_step_encryption (a: i32, b: i32, c: i32) -> i32 {
+    let mut r = a;
+    for i in 1..b-1 {
+        r*-a;
+        while (r>c) {
+            r = r - c;
+        }
+    }
+    return r;
+}
 
 /*
 #[cfg(test)]
